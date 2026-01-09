@@ -1,101 +1,97 @@
 <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <!-- Gradientes -->
-    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+    <!-- Background gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#1a1a1a"/>
-      <stop offset="100%" style="stop-color:#0d0d0d"/>
+      <stop offset="100%" style="stop-color:#0a0a0a"/>
     </linearGradient>
     
-    <linearGradient id="ballGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#4CAF50"/>
-      <stop offset="50%" style="stop-color:#2E7D32"/>
-      <stop offset="100%" style="stop-color:#1B5E20"/>
+    <!-- Verde VIBRANTE -->
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00E676"/>
+      <stop offset="50%" style="stop-color:#00C853"/>
+      <stop offset="100%" style="stop-color:#00A843"/>
     </linearGradient>
     
+    <!-- Accent amarelo/laranja -->
     <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#F9A825"/>
-      <stop offset="100%" style="stop-color:#FF6F00"/>
+      <stop offset="0%" style="stop-color:#FFD600"/>
+      <stop offset="100%" style="stop-color:#FF9100"/>
     </linearGradient>
     
     <!-- Glow -->
     <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
       <feMerge>
         <feMergeNode in="coloredBlur"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
     
-    <!-- Inner shadow -->
-    <filter id="innerShadow" x="-50%" y="-50%" width="200%" height="200%">
-      <feOffset dx="0" dy="2"/>
-      <feGaussianBlur stdDeviation="2"/>
-      <feComposite operator="out" in="SourceGraphic"/>
-      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3 0"/>
-      <feBlend in="SourceGraphic"/>
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
     </filter>
     
     <!-- Hex pattern -->
     <pattern id="hexGrid" patternUnits="userSpaceOnUse" width="10" height="8.66">
-      <path d="M5 0L10 2.5L10 7.5L5 10L0 7.5L0 2.5Z" fill="none" stroke="#4CAF50" stroke-width="0.3" opacity="0.4"/>
+      <path d="M5 0L10 2.5L10 7.5L5 10L0 7.5L0 2.5Z" fill="none" stroke="#00E676" stroke-width="0.4" opacity="0.5"/>
     </pattern>
   </defs>
   
   <!-- Background -->
-  <rect width="120" height="120" rx="24" fill="url(#bgGradient)"/>
+  <rect width="120" height="120" rx="26" fill="url(#bgGrad)"/>
   
   <!-- Outer tech ring -->
-  <circle cx="60" cy="60" r="50" fill="none" stroke="#2E7D32" stroke-width="0.5" opacity="0.3"/>
-  <circle cx="60" cy="60" r="54" fill="none" stroke="url(#accentGrad)" stroke-width="1" opacity="0.2" stroke-dasharray="8,4"/>
+  <circle cx="60" cy="60" r="52" fill="none" stroke="url(#accentGrad)" stroke-width="1.2" opacity="0.25" stroke-dasharray="8,4"/>
+  <circle cx="60" cy="60" r="48" fill="none" stroke="#00C853" stroke-width="0.5" opacity="0.4"/>
   
   <!-- Main ball -->
-  <circle cx="60" cy="60" r="42" fill="url(#ballGrad)" filter="url(#innerShadow)"/>
+  <circle cx="60" cy="60" r="42" fill="url(#greenGrad)"/>
   
   <!-- Hex overlay -->
-  <circle cx="60" cy="60" r="40" fill="url(#hexGrid)" opacity="0.5"/>
+  <circle cx="60" cy="60" r="40" fill="url(#hexGrid)" opacity="0.6"/>
   
   <!-- Futuristic segments -->
-  <g>
+  <g filter="url(#softGlow)">
     <!-- Center hex -->
-    <path d="M60 28L74 38L74 56L60 66L46 56L46 38Z" fill="#1B5E20" stroke="#4CAF50" stroke-width="0.5"/>
+    <path d="M60 30L76 42L76 62L60 74L44 62L44 42Z" fill="#00A843" stroke="#00E676" stroke-width="0.8"/>
     
     <!-- Side segments -->
-    <path d="M74 38L90 48L90 64L74 74L74 56Z" fill="#1B5E20" stroke="#4CAF50" stroke-width="0.5"/>
-    <path d="M46 38L46 56L30 66L30 50L30 48Z" fill="#1B5E20" stroke="#4CAF50" stroke-width="0.5"/>
-    <path d="M60 66L74 74L68 90L52 90L46 74Z" fill="#1B5E20" stroke="#4CAF50" stroke-width="0.5"/>
+    <path d="M76 42L94 54L94 72L76 84L76 62Z" fill="#00A843" stroke="#00E676" stroke-width="0.6"/>
+    <path d="M44 42L44 62L26 74L26 56L26 54Z" fill="#00A843" stroke="#00E676" stroke-width="0.6"/>
+    <path d="M60 74L76 84L70 98L50 98L44 84Z" fill="#00A843" stroke="#00E676" stroke-width="0.6"/>
   </g>
   
   <!-- Circuit lines -->
-  <g stroke="#4CAF50" stroke-width="0.8" opacity="0.5">
-    <path d="M60 14L60 28"/>
-    <path d="M96 48L106 42"/>
-    <path d="M24 48L14 42"/>
-    <circle cx="60" cy="14" r="2" fill="#4CAF50"/>
-    <circle cx="106" cy="42" r="2" fill="#4CAF50"/>
-    <circle cx="14" cy="42" r="2" fill="#4CAF50"/>
+  <g stroke="#00E676" stroke-width="0.8" opacity="0.6">
+    <path d="M60 12L60 30"/>
+    <path d="M100 44L108 38"/>
+    <path d="M20 44L12 38"/>
+    <circle cx="60" cy="12" r="2.5" fill="#00E676"/>
+    <circle cx="108" cy="38" r="2" fill="#00E676"/>
+    <circle cx="12" cy="38" r="2" fill="#00E676"/>
   </g>
+  
+  <!-- R Letter - destaque central -->
+  <text x="42" y="75" font-family="'Montserrat', Arial Black, sans-serif" font-weight="900" font-size="44" fill="#FFFFFF" filter="url(#glow)">R</text>
   
   <!-- Energy arc -->
-  <path d="M18 78C26 54 38 42 54 38" stroke="url(#accentGrad)" stroke-width="4" stroke-linecap="round" fill="none" filter="url(#glow)"/>
+  <path d="M16 84C28 56 44 42 60 38" stroke="url(#accentGrad)" stroke-width="4" stroke-linecap="round" fill="none" filter="url(#glow)"/>
   
   <!-- Speed trails -->
-  <g stroke="url(#accentGrad)" stroke-width="2" stroke-linecap="round">
+  <g stroke="url(#accentGrad)" stroke-width="2.5" stroke-linecap="round">
     <path d="M10 68L22 64"/>
-    <path d="M8 80L24 74"/>
-    <path d="M14 92L28 84"/>
+    <path d="M6 80L24 74"/>
+    <path d="M14 94L28 86"/>
   </g>
   
-  <!-- Shine -->
-  <ellipse cx="45" cy="40" rx="10" ry="7" fill="#FFFFFF" opacity="0.12"/>
-  
-  <!-- R Letter overlay -->
-  <text x="48" y="72" font-family="'Montserrat', Arial Black, sans-serif" font-weight="900" font-size="32" fill="#FFFFFF" opacity="0.95" filter="url(#glow)">R</text>
-  
-  <!-- Corner accents -->
-  <g fill="#4CAF50" opacity="0.4">
-    <rect x="8" y="8" width="3" height="12" rx="1"/>
-    <rect x="8" y="8" width="12" height="3" rx="1"/>
-    <rect x="109" y="100" width="3" height="12" rx="1"/>
-    <rect x="100" y="109" width="12" height="3" rx="1"/>
+  <!-- Tech corners -->
+  <g stroke="#00C853" stroke-width="1.5" opacity="0.5">
+    <path d="M10 10L10 24M10 10L24 10"/>
+    <path d="M110 110L110 96M110 110L96 110"/>
   </g>
 </svg>
