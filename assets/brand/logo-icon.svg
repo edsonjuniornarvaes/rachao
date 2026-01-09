@@ -1,0 +1,24 @@
+<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Rachão App Icon - Solo Ball -->
+  
+  <!-- Background circle -->
+  <circle cx="50" cy="50" r="48" fill="#121212"/>
+  
+  <!-- Soccer Ball - Modern Style -->
+  <circle cx="50" cy="50" r="35" fill="#2E7D32"/>
+  
+  <!-- Pentagon patterns -->
+  <path d="M50 20L60 35L55 52L45 52L40 35L50 20Z" fill="#1B5E20"/>
+  <path d="M70 40L80 55L70 70L55 65L55 52L70 40Z" fill="#1B5E20"/>
+  <path d="M30 40L45 52L45 65L30 70L20 55L30 40Z" fill="#1B5E20"/>
+  <path d="M40 72L50 80L60 72L55 65L45 65L40 72Z" fill="#1B5E20"/>
+  
+  <!-- Shine effect -->
+  <circle cx="38" cy="35" r="8" fill="#4CAF50" opacity="0.5"/>
+  
+  <!-- Motion accent -->
+  <path d="M15 50C15 50 25 43 35 47" stroke="#F9A825" stroke-width="4" stroke-linecap="round"/>
+  
+  <!-- R letter overlay (subtle) -->
+  <text x="38" y="62" font-family="Montserrat, Arial Black, sans-serif" font-weight="900" font-size="28" fill="#EEEEEE" opacity="0.9">R</text>
+</svg>

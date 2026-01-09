@@ -1,0 +1,35 @@
+<svg width="320" height="80" viewBox="0 0 320 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background (optional, remove for transparent) -->
+  <!-- <rect width="320" height="80" fill="#121212"/> -->
+  
+  <!-- Soccer Ball Icon - Stylized/Modern -->
+  <g id="ball-icon">
+    <!-- Ball base -->
+    <circle cx="40" cy="40" r="28" fill="#2E7D32"/>
+    
+    <!-- Pentagon pattern (simplified modern) -->
+    <path d="M40 16L48 28L44 42L36 42L32 28L40 16Z" fill="#1B5E20"/>
+    <path d="M56 32L64 44L56 56L44 52L44 42L56 32Z" fill="#1B5E20"/>
+    <path d="M24 32L36 42L36 52L24 56L16 44L24 32Z" fill="#1B5E20"/>
+    <path d="M32 58L40 64L48 58L44 52L36 52L32 58Z" fill="#1B5E20"/>
+    
+    <!-- Highlight/shine -->
+    <circle cx="30" cy="28" r="6" fill="#4CAF50" opacity="0.6"/>
+    
+    <!-- Dynamic motion line -->
+    <path d="M12 40C12 40 20 35 28 38" stroke="#F9A825" stroke-width="3" stroke-linecap="round"/>
+  </g>
+  
+  <!-- RACHÃO Text - Bold Modern -->
+  <g id="text-logo">
+    <text x="80" y="52" font-family="Montserrat, Arial Black, sans-serif" font-weight="800" font-size="38" fill="#EEEEEE" letter-spacing="2">
+      RACHÃO
+    </text>
+    
+    <!-- Accent line under text -->
+    <rect x="80" y="60" width="120" height="4" rx="2" fill="#F9A825"/>
+    
+    <!-- Dynamic slash through -->
+    <path d="M75 65L245 20" stroke="#2E7D32" stroke-width="3" stroke-linecap="round" opacity="0.3"/>
+  </g>
+</svg>
