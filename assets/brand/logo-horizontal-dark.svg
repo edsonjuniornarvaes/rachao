@@ -1,19 +1,98 @@
-<svg width="280" height="60" viewBox="0 0 280 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Rachão Logo - Horizontal Dark Version -->
+<svg width="320" height="80" viewBox="0 0 320 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="ballGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4CAF50"/>
+      <stop offset="50%" style="stop-color:#2E7D32"/>
+      <stop offset="100%" style="stop-color:#1B5E20"/>
+    </linearGradient>
+    
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#F9A825"/>
+      <stop offset="100%" style="stop-color:#FF6F00"/>
+    </linearGradient>
+    
+    <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#FFFFFF"/>
+      <stop offset="100%" style="stop-color:#CFD8DC"/>
+    </linearGradient>
+    
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <pattern id="hexPattern" patternUnits="userSpaceOnUse" width="8" height="7">
+      <path d="M4 0L8 2L8 5.5L4 7.5L0 5.5L0 2Z" fill="none" stroke="#4CAF50" stroke-width="0.2" opacity="0.4"/>
+    </pattern>
+  </defs>
   
-  <!-- Soccer Ball Mini -->
-  <circle cx="30" cy="30" r="24" fill="#2E7D32"/>
-  <path d="M30 10L37 20L34 32L26 32L23 20L30 10Z" fill="#1B5E20"/>
-  <path d="M44 24L52 34L44 44L34 40L34 32L44 24Z" fill="#1B5E20"/>
-  <path d="M16 24L26 32L26 40L16 44L8 34L16 24Z" fill="#1B5E20"/>
-  <circle cx="22" cy="20" r="5" fill="#4CAF50" opacity="0.5"/>
-  <path d="M8 30C8 30 14 26 20 28" stroke="#F9A825" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Ball section -->
+  <g transform="translate(0, 0)">
+    <!-- Outer rings -->
+    <circle cx="40" cy="40" r="36" fill="none" stroke="#2E7D32" stroke-width="0.5" opacity="0.3"/>
+    <circle cx="40" cy="40" r="38" fill="none" stroke="url(#accentGradient)" stroke-width="0.5" opacity="0.2" stroke-dasharray="6,3"/>
+    
+    <!-- Main ball -->
+    <circle cx="40" cy="40" r="32" fill="url(#ballGradient)"/>
+    <circle cx="40" cy="40" r="30" fill="url(#hexPattern)" opacity="0.5"/>
+    
+    <!-- Segments -->
+    <path d="M40 16L50 24L50 38L40 46L30 38L30 24Z" fill="#1B5E20" stroke="#4CAF50" stroke-width="0.4"/>
+    <path d="M50 24L62 32L62 44L50 52L50 38Z" fill="#1B5E20" stroke="#4CAF50" stroke-width="0.4"/>
+    <path d="M30 24L30 38L18 46L18 34L18 32Z" fill="#1B5E20" stroke="#4CAF50" stroke-width="0.4"/>
+    <path d="M40 46L50 52L46 64L34 64L30 52Z" fill="#1B5E20" stroke="#4CAF50" stroke-width="0.4"/>
+    
+    <!-- Circuit nodes -->
+    <g stroke="#4CAF50" stroke-width="0.6" opacity="0.5">
+      <path d="M40 6L40 16"/>
+      <circle cx="40" cy="6" r="1.5" fill="#4CAF50"/>
+    </g>
+    
+    <!-- Energy arc -->
+    <path d="M10 54C16 38 24 30 36 28" stroke="url(#accentGradient)" stroke-width="2.5" stroke-linecap="round" fill="none" filter="url(#glow)"/>
+    
+    <!-- Speed lines -->
+    <g stroke="url(#accentGradient)" stroke-width="1.5" stroke-linecap="round" opacity="0.8">
+      <path d="M6 48L14 46"/>
+      <path d="M4 56L16 52"/>
+      <path d="M8 64L18 58"/>
+    </g>
+    
+    <!-- Shine -->
+    <ellipse cx="30" cy="28" rx="6" ry="4" fill="#FFFFFF" opacity="0.12"/>
+  </g>
   
-  <!-- Text -->
-  <text x="65" y="40" font-family="Montserrat, Arial Black, sans-serif" font-weight="800" font-size="32" fill="#EEEEEE" letter-spacing="3">
-    RACHÃO
-  </text>
-  
-  <!-- Underline accent -->
-  <rect x="65" y="47" width="80" height="3" rx="1.5" fill="#F9A825"/>
+  <!-- Text section -->
+  <g>
+    <!-- Base line -->
+    <rect x="88" y="52" width="160" height="1" fill="#333333"/>
+    
+    <!-- Accent underline -->
+    <rect x="88" y="52" width="85" height="2.5" rx="1" fill="url(#accentGradient)" filter="url(#glow)"/>
+    
+    <!-- Main text -->
+    <text x="90" y="46" font-family="'Montserrat', 'SF Pro Display', Arial Black, sans-serif" font-weight="900" font-size="36" fill="url(#textGradient)" letter-spacing="3">
+      RACHÃO
+    </text>
+    
+    <!-- Tech corners -->
+    <g fill="#4CAF50" opacity="0.5">
+      <rect x="88" y="16" width="2" height="6"/>
+      <rect x="88" y="16" width="6" height="2"/>
+      <rect x="248" y="52" width="2" height="6"/>
+      <rect x="244" y="56" width="6" height="2"/>
+    </g>
+    
+    <!-- Subtitle -->
+    <text x="178" y="66" font-family="'Inter', Arial, sans-serif" font-weight="400" font-size="8" fill="#4CAF50" letter-spacing="3" opacity="0.7">
+      SPORTS
+    </text>
+    
+    <!-- Dots -->
+    <circle cx="86" cy="40" r="1.2" fill="url(#accentGradient)"/>
+    <circle cx="252" cy="40" r="1.2" fill="url(#accentGradient)"/>
+  </g>
 </svg>

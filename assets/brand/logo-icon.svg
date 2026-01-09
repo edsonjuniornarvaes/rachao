@@ -1,24 +1,101 @@
-<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Rachão App Icon - Solo Ball -->
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradientes -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a1a"/>
+      <stop offset="100%" style="stop-color:#0d0d0d"/>
+    </linearGradient>
+    
+    <linearGradient id="ballGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4CAF50"/>
+      <stop offset="50%" style="stop-color:#2E7D32"/>
+      <stop offset="100%" style="stop-color:#1B5E20"/>
+    </linearGradient>
+    
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#F9A825"/>
+      <stop offset="100%" style="stop-color:#FF6F00"/>
+    </linearGradient>
+    
+    <!-- Glow -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- Inner shadow -->
+    <filter id="innerShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feOffset dx="0" dy="2"/>
+      <feGaussianBlur stdDeviation="2"/>
+      <feComposite operator="out" in="SourceGraphic"/>
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3 0"/>
+      <feBlend in="SourceGraphic"/>
+    </filter>
+    
+    <!-- Hex pattern -->
+    <pattern id="hexGrid" patternUnits="userSpaceOnUse" width="10" height="8.66">
+      <path d="M5 0L10 2.5L10 7.5L5 10L0 7.5L0 2.5Z" fill="none" stroke="#4CAF50" stroke-width="0.3" opacity="0.4"/>
+    </pattern>
+  </defs>
   
-  <!-- Background circle -->
-  <circle cx="50" cy="50" r="48" fill="#121212"/>
+  <!-- Background -->
+  <rect width="120" height="120" rx="24" fill="url(#bgGradient)"/>
   
-  <!-- Soccer Ball - Modern Style -->
-  <circle cx="50" cy="50" r="35" fill="#2E7D32"/>
+  <!-- Outer tech ring -->
+  <circle cx="60" cy="60" r="50" fill="none" stroke="#2E7D32" stroke-width="0.5" opacity="0.3"/>
+  <circle cx="60" cy="60" r="54" fill="none" stroke="url(#accentGrad)" stroke-width="1" opacity="0.2" stroke-dasharray="8,4"/>
   
-  <!-- Pentagon patterns -->
-  <path d="M50 20L60 35L55 52L45 52L40 35L50 20Z" fill="#1B5E20"/>
-  <path d="M70 40L80 55L70 70L55 65L55 52L70 40Z" fill="#1B5E20"/>
-  <path d="M30 40L45 52L45 65L30 70L20 55L30 40Z" fill="#1B5E20"/>
-  <path d="M40 72L50 80L60 72L55 65L45 65L40 72Z" fill="#1B5E20"/>
+  <!-- Main ball -->
+  <circle cx="60" cy="60" r="42" fill="url(#ballGrad)" filter="url(#innerShadow)"/>
   
-  <!-- Shine effect -->
-  <circle cx="38" cy="35" r="8" fill="#4CAF50" opacity="0.5"/>
+  <!-- Hex overlay -->
+  <circle cx="60" cy="60" r="40" fill="url(#hexGrid)" opacity="0.5"/>
   
-  <!-- Motion accent -->
-  <path d="M15 50C15 50 25 43 35 47" stroke="#F9A825" stroke-width="4" stroke-linecap="round"/>
+  <!-- Futuristic segments -->
+  <g>
+    <!-- Center hex -->
+    <path d="M60 28L74 38L74 56L60 66L46 56L46 38Z" fill="#1B5E20" stroke="#4CAF50" stroke-width="0.5"/>
+    
+    <!-- Side segments -->
+    <path d="M74 38L90 48L90 64L74 74L74 56Z" fill="#1B5E20" stroke="#4CAF50" stroke-width="0.5"/>
+    <path d="M46 38L46 56L30 66L30 50L30 48Z" fill="#1B5E20" stroke="#4CAF50" stroke-width="0.5"/>
+    <path d="M60 66L74 74L68 90L52 90L46 74Z" fill="#1B5E20" stroke="#4CAF50" stroke-width="0.5"/>
+  </g>
   
-  <!-- R letter overlay (subtle) -->
-  <text x="38" y="62" font-family="Montserrat, Arial Black, sans-serif" font-weight="900" font-size="28" fill="#EEEEEE" opacity="0.9">R</text>
+  <!-- Circuit lines -->
+  <g stroke="#4CAF50" stroke-width="0.8" opacity="0.5">
+    <path d="M60 14L60 28"/>
+    <path d="M96 48L106 42"/>
+    <path d="M24 48L14 42"/>
+    <circle cx="60" cy="14" r="2" fill="#4CAF50"/>
+    <circle cx="106" cy="42" r="2" fill="#4CAF50"/>
+    <circle cx="14" cy="42" r="2" fill="#4CAF50"/>
+  </g>
+  
+  <!-- Energy arc -->
+  <path d="M18 78C26 54 38 42 54 38" stroke="url(#accentGrad)" stroke-width="4" stroke-linecap="round" fill="none" filter="url(#glow)"/>
+  
+  <!-- Speed trails -->
+  <g stroke="url(#accentGrad)" stroke-width="2" stroke-linecap="round">
+    <path d="M10 68L22 64"/>
+    <path d="M8 80L24 74"/>
+    <path d="M14 92L28 84"/>
+  </g>
+  
+  <!-- Shine -->
+  <ellipse cx="45" cy="40" rx="10" ry="7" fill="#FFFFFF" opacity="0.12"/>
+  
+  <!-- R Letter overlay -->
+  <text x="48" y="72" font-family="'Montserrat', Arial Black, sans-serif" font-weight="900" font-size="32" fill="#FFFFFF" opacity="0.95" filter="url(#glow)">R</text>
+  
+  <!-- Corner accents -->
+  <g fill="#4CAF50" opacity="0.4">
+    <rect x="8" y="8" width="3" height="12" rx="1"/>
+    <rect x="8" y="8" width="12" height="3" rx="1"/>
+    <rect x="109" y="100" width="3" height="12" rx="1"/>
+    <rect x="100" y="109" width="12" height="3" rx="1"/>
+  </g>
 </svg>
