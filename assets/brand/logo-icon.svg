@@ -36,7 +36,7 @@
       </feMerge>
     </filter>
     
-    <!-- Hex pattern -->
+    <!-- Hex pattern - MESMO do logo.svg -->
     <pattern id="hexGrid" patternUnits="userSpaceOnUse" width="10" height="8.66">
       <path d="M5 0L10 2.5L10 7.5L5 10L0 7.5L0 2.5Z" fill="none" stroke="#00E676" stroke-width="0.4" opacity="0.5"/>
     </pattern>
@@ -45,39 +45,42 @@
   <!-- Background -->
   <rect width="120" height="120" rx="26" fill="url(#bgGrad)"/>
   
-  <!-- Outer tech ring -->
+  <!-- Outer tech ring - MESMO estilo do logo.svg -->
   <circle cx="60" cy="60" r="52" fill="none" stroke="url(#accentGrad)" stroke-width="1.2" opacity="0.25" stroke-dasharray="8,4"/>
   <circle cx="60" cy="60" r="48" fill="none" stroke="#00C853" stroke-width="0.5" opacity="0.4"/>
   
   <!-- Main ball -->
   <circle cx="60" cy="60" r="42" fill="url(#greenGrad)"/>
   
-  <!-- Hex overlay -->
+  <!-- Hex overlay - MESMO do logo.svg -->
   <circle cx="60" cy="60" r="40" fill="url(#hexGrid)" opacity="0.6"/>
   
-  <!-- Futuristic segments -->
+  <!-- Futuristic hexagon segments - MESMO estilo -->
   <g filter="url(#softGlow)">
     <!-- Center hex -->
-    <path d="M60 30L76 42L76 62L60 74L44 62L44 42Z" fill="#00A843" stroke="#00E676" stroke-width="0.8"/>
+    <path d="M60 40L74 50L74 68L60 78L46 68L46 50Z" fill="#00A843" stroke="#00E676" stroke-width="0.8"/>
     
     <!-- Side segments -->
-    <path d="M76 42L94 54L94 72L76 84L76 62Z" fill="#00A843" stroke="#00E676" stroke-width="0.6"/>
-    <path d="M44 42L44 62L26 74L26 56L26 54Z" fill="#00A843" stroke="#00E676" stroke-width="0.6"/>
-    <path d="M60 74L76 84L70 98L50 98L44 84Z" fill="#00A843" stroke="#00E676" stroke-width="0.6"/>
+    <path d="M74 50L90 62L90 78L74 90L74 68Z" fill="#00A843" stroke="#00E676" stroke-width="0.6"/>
+    <path d="M46 50L46 68L30 78L30 62Z" fill="#00A843" stroke="#00E676" stroke-width="0.6"/>
+    <path d="M60 78L74 90L68 104L52 104L46 90Z" fill="#00A843" stroke="#00E676" stroke-width="0.6"/>
   </g>
   
-  <!-- Circuit lines -->
+  <!-- Circuit lines - MESMO estilo -->
   <g stroke="#00E676" stroke-width="0.8" opacity="0.6">
-    <path d="M60 12L60 30"/>
-    <path d="M100 44L108 38"/>
-    <path d="M20 44L12 38"/>
-    <circle cx="60" cy="12" r="2.5" fill="#00E676"/>
-    <circle cx="108" cy="38" r="2" fill="#00E676"/>
-    <circle cx="12" cy="38" r="2" fill="#00E676"/>
+    <path d="M60 14L60 36"/>
+    <path d="M96 36L106 28"/>
+    <path d="M24 36L14 28"/>
+    <circle cx="60" cy="14" r="2.5" fill="#00E676"/>
+    <circle cx="106" cy="28" r="2" fill="#00E676"/>
+    <circle cx="14" cy="28" r="2" fill="#00E676"/>
   </g>
   
-  <!-- R Letter - destaque central -->
+  <!-- R Letter central -->
   <text x="42" y="75" font-family="'Montserrat', Arial Black, sans-serif" font-weight="900" font-size="44" fill="#FFFFFF" filter="url(#glow)">R</text>
+  
+  <!-- Highlight -->
+  <ellipse cx="48" cy="46" rx="10" ry="6" fill="#FFFFFF" opacity="0.2"/>
   
   <!-- Energy arc -->
   <path d="M16 84C28 56 44 42 60 38" stroke="url(#accentGrad)" stroke-width="4" stroke-linecap="round" fill="none" filter="url(#glow)"/>
