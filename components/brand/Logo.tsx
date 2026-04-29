@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useId } from "react";
 import { View, Text, StyleSheet } from "react-native";
-import Svg, { Circle, Path, Rect, G } from "react-native-svg";
-import { Brand, Typography } from "@/constants/theme";
+import Svg, { Circle, Path, Rect, G, Defs, RadialGradient, Stop } from "react-native-svg";
+import { Typography } from "@/constants/theme";
 
 interface LogoProps {
   size?: "sm" | "md" | "lg" | "xl";
@@ -23,37 +23,55 @@ export function Logo({
 }: LogoProps) {
   const { icon: iconSize, fontSize, height } = sizes[size];
   const textColor = colorScheme === "dark" ? "#EEEEEE" : "#1A1A1A";
+  const gradId = `rachao-bg-${useId().replace(/:/g, "")}`;
 
+  /** Ícone: noite de campo + traços verdes (gramado / bola) + contorno claro. */
   const BallIcon = () => (
     <Svg width={iconSize} height={iconSize} viewBox="0 0 100 100">
-      {/* Soccer Ball */}
-      <Circle cx="50" cy="50" r="45" fill={Brand.primary} />
-
-      {/* Pentagon patterns */}
-      <Path d="M50 15L62 32L56 52L44 52L38 32L50 15Z" fill={Brand.primaryDark} />
-      <Path
-        d="M72 38L84 54L72 72L56 66L56 52L72 38Z"
-        fill={Brand.primaryDark}
-      />
-      <Path
-        d="M28 38L44 52L44 66L28 72L16 54L28 38Z"
-        fill={Brand.primaryDark}
-      />
-      <Path
-        d="M38 76L50 85L62 76L56 66L44 66L38 76Z"
-        fill={Brand.primaryDark}
-      />
-
-      {/* Shine */}
-      <Circle cx="36" cy="32" r="10" fill={Brand.primaryLight} opacity="0.5" />
-
-      {/* Motion accent */}
-      <Path
-        d="M10 50C10 50 22 42 34 46"
-        stroke={Brand.secondary}
-        strokeWidth="5"
-        strokeLinecap="round"
-      />
+      <Defs>
+        <RadialGradient id={gradId} cx="50%" cy="42%" rx="58%" ry="58%" fx="50%" fy="42%">
+          <Stop offset="0%" stopColor="#122018" />
+          <Stop offset="100%" stopColor="#050a08" />
+        </RadialGradient>
+      </Defs>
+      <Rect width="100" height="100" fill={`url(#${gradId})`} />
+      <G>
+        <Circle cx="50" cy="50" r="33.5" stroke="#4ade80" strokeWidth={1.15} fill="none" />
+        <Path
+          d="M50 36.2 L61.35 44.5 L57.05 58.1 L42.95 58.1 L38.65 44.5 Z"
+          stroke="#4ade80"
+          strokeWidth={1.05}
+          fill="none"
+          strokeLinejoin="round"
+        />
+        <Path
+          d="M22 72 Q34 58 50 54 Q66 50 78 62"
+          stroke="#22c55e"
+          strokeWidth={1.35}
+          strokeLinecap="round"
+          opacity={0.9}
+          fill="none"
+        />
+      </G>
+      <G opacity={0.9}>
+        <Circle cx="50" cy="50" r="33.5" stroke="#ecfdf5" strokeWidth={0.5} fill="none" />
+        <Path
+          d="M50 36.2 L61.35 44.5 L57.05 58.1 L42.95 58.1 L38.65 44.5 Z"
+          stroke="#ecfdf5"
+          strokeWidth={0.48}
+          fill="none"
+          strokeLinejoin="round"
+          opacity={0.95}
+        />
+        <Path
+          d="M22 72 Q34 58 50 54 Q66 50 78 62"
+          stroke="#ecfdf5"
+          strokeWidth={0.55}
+          strokeLinecap="round"
+          opacity={0.3}
+          fill="none"
+        />
+      </G>
     </Svg>
   );
 
@@ -70,7 +88,7 @@ export function Logo({
         <View
           style={[
             styles.underline,
-            { width: fontSize * 2.5, backgroundColor: Brand.secondary },
+            { width: fontSize * 2.5, backgroundColor: "#22c55e" },
           ]}
         />
       </View>
@@ -88,7 +106,7 @@ export function Logo({
         <View
           style={[
             styles.underline,
-            { width: fontSize * 2.2, backgroundColor: Brand.secondary },
+            { width: fontSize * 2.2, backgroundColor: "#22c55e" },
           ]}
         />
       </View>

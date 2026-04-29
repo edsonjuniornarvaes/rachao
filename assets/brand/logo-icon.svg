@@ -1,100 +1,54 @@
-<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
   <defs>
-    <!-- Background gradient -->
-    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1a1a1a"/>
-      <stop offset="100%" style="stop-color:#0a0a0a"/>
-    </linearGradient>
-    
-    <!-- Verde VIBRANTE -->
-    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#00E676"/>
-      <stop offset="50%" style="stop-color:#00C853"/>
-      <stop offset="100%" style="stop-color:#00A843"/>
-    </linearGradient>
-    
-    <!-- Accent amarelo/laranja -->
-    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#FFD600"/>
-      <stop offset="100%" style="stop-color:#FF9100"/>
-    </linearGradient>
-    
-    <!-- Glow -->
-    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+    <filter id="rachaoFieldGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="0.55" result="blur"/>
+      <feColorMatrix in="blur" type="matrix"
+        values="0.2 0 0 0 0
+                0 1 0 0 0.08
+                0 0 0.35 0 0
+                0 0 0 0.6 0" result="glow"/>
       <feMerge>
-        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="glow"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
-    
-    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
-      <feMerge>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-    
-    <!-- Hex pattern - MESMO do logo.svg -->
-    <pattern id="hexGrid" patternUnits="userSpaceOnUse" width="10" height="8.66">
-      <path d="M5 0L10 2.5L10 7.5L5 10L0 7.5L0 2.5Z" fill="none" stroke="#00E676" stroke-width="0.4" opacity="0.5"/>
-    </pattern>
+    <radialGradient id="rachaoBg" cx="50%" cy="42%" r="58%">
+      <stop offset="0%" stop-color="#122018"/>
+      <stop offset="100%" stop-color="#050a08"/>
+    </radialGradient>
   </defs>
-  
-  <!-- Background -->
-  <rect width="120" height="120" rx="26" fill="url(#bgGrad)"/>
-  
-  <!-- Outer tech ring - MESMO estilo do logo.svg -->
-  <circle cx="60" cy="60" r="52" fill="none" stroke="url(#accentGrad)" stroke-width="1.2" opacity="0.25" stroke-dasharray="8,4"/>
-  <circle cx="60" cy="60" r="48" fill="none" stroke="#00C853" stroke-width="0.5" opacity="0.4"/>
-  
-  <!-- Main ball -->
-  <circle cx="60" cy="60" r="42" fill="url(#greenGrad)"/>
-  
-  <!-- Hex overlay - MESMO do logo.svg -->
-  <circle cx="60" cy="60" r="40" fill="url(#hexGrid)" opacity="0.6"/>
-  
-  <!-- Futuristic hexagon segments - MESMO estilo -->
-  <g filter="url(#softGlow)">
-    <!-- Center hex -->
-    <path d="M60 40L74 50L74 68L60 78L46 68L46 50Z" fill="#00A843" stroke="#00E676" stroke-width="0.8"/>
-    
-    <!-- Side segments -->
-    <path d="M74 50L90 62L90 78L74 90L74 68Z" fill="#00A843" stroke="#00E676" stroke-width="0.6"/>
-    <path d="M46 50L46 68L30 78L30 62Z" fill="#00A843" stroke="#00E676" stroke-width="0.6"/>
-    <path d="M60 78L74 90L68 104L52 104L46 90Z" fill="#00A843" stroke="#00E676" stroke-width="0.6"/>
+  <rect width="100" height="100" fill="url(#rachaoBg)"/>
+  <g filter="url(#rachaoFieldGlow)">
+    <circle cx="50" cy="50" r="33.5" stroke="#4ade80" stroke-width="1.15"/>
+    <path
+      d="M50 36.2 L61.35 44.5 L57.05 58.1 L42.95 58.1 L38.65 44.5 Z"
+      stroke="#4ade80"
+      stroke-width="1.05"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M22 72 Q34 58 50 54 Q66 50 78 62"
+      stroke="#22c55e"
+      stroke-width="1.35"
+      stroke-linecap="round"
+      opacity="0.9"
+    />
   </g>
-  
-  <!-- Circuit lines - MESMO estilo -->
-  <g stroke="#00E676" stroke-width="0.8" opacity="0.6">
-    <path d="M60 14L60 36"/>
-    <path d="M96 36L106 28"/>
-    <path d="M24 36L14 28"/>
-    <circle cx="60" cy="14" r="2.5" fill="#00E676"/>
-    <circle cx="106" cy="28" r="2" fill="#00E676"/>
-    <circle cx="14" cy="28" r="2" fill="#00E676"/>
-  </g>
-  
-  <!-- R Letter central -->
-  <text x="42" y="75" font-family="'Montserrat', Arial Black, sans-serif" font-weight="900" font-size="44" fill="#FFFFFF" filter="url(#glow)">R</text>
-  
-  <!-- Highlight -->
-  <ellipse cx="48" cy="46" rx="10" ry="6" fill="#FFFFFF" opacity="0.2"/>
-  
-  <!-- Energy arc -->
-  <path d="M16 84C28 56 44 42 60 38" stroke="url(#accentGrad)" stroke-width="4" stroke-linecap="round" fill="none" filter="url(#glow)"/>
-  
-  <!-- Speed trails -->
-  <g stroke="url(#accentGrad)" stroke-width="2.5" stroke-linecap="round">
-    <path d="M10 68L22 64"/>
-    <path d="M6 80L24 74"/>
-    <path d="M14 94L28 86"/>
-  </g>
-  
-  <!-- Tech corners -->
-  <g stroke="#00C853" stroke-width="1.5" opacity="0.5">
-    <path d="M10 10L10 24M10 10L24 10"/>
-    <path d="M110 110L110 96M110 110L96 110"/>
+  <g>
+    <circle cx="50" cy="50" r="33.5" stroke="#ecfdf5" stroke-width="0.5" opacity="0.88"/>
+    <path
+      d="M50 36.2 L61.35 44.5 L57.05 58.1 L42.95 58.1 L38.65 44.5 Z"
+      stroke="#ecfdf5"
+      stroke-width="0.48"
+      stroke-linejoin="round"
+      opacity="0.85"
+    />
+    <path
+      d="M22 72 Q34 58 50 54 Q66 50 78 62"
+      stroke="#ecfdf5"
+      stroke-width="0.55"
+      stroke-linecap="round"
+      opacity="0.3"
+    />
   </g>
 </svg>

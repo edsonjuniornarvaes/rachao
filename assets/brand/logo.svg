@@ -1,117 +1,77 @@
-<svg width="360" height="100" viewBox="0 0 360 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 100" fill="none">
   <defs>
-    <!-- Verde VIBRANTE -->
-    <linearGradient id="ballGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#00E676"/>
-      <stop offset="50%" style="stop-color:#00C853"/>
-      <stop offset="100%" style="stop-color:#00A843"/>
-    </linearGradient>
-    
-    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#FFD600"/>
-      <stop offset="100%" style="stop-color:#FF9100"/>
-    </linearGradient>
-    
-    <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#FFFFFF"/>
-      <stop offset="100%" style="stop-color:#E0E0E0"/>
-    </linearGradient>
-    
-    <!-- Glow effects -->
-    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+    <filter id="rlFieldGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="0.55" result="blur"/>
+      <feColorMatrix in="blur" type="matrix"
+        values="0.2 0 0 0 0
+                0 1 0 0 0.08
+                0 0 0.35 0 0
+                0 0 0 0.55 0" result="glow"/>
       <feMerge>
-        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="glow"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
-    
-    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
-      <feMerge>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-    
-    <!-- Tech hex pattern -->
-    <pattern id="hexPattern" patternUnits="userSpaceOnUse" width="10" height="8.66">
-      <path d="M5 0L10 2.5L10 7.5L5 10L0 7.5L0 2.5Z" fill="none" stroke="#00E676" stroke-width="0.4" opacity="0.5"/>
-    </pattern>
+    <radialGradient id="rlBg" cx="50%" cy="42%" r="58%">
+      <stop offset="0%" stop-color="#122018"/>
+      <stop offset="100%" stop-color="#050a08"/>
+    </radialGradient>
+    <linearGradient id="rlText" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#d1fae5"/>
+    </linearGradient>
+    <linearGradient id="rlAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4ade80"/>
+      <stop offset="100%" stop-color="#16a34a"/>
+    </linearGradient>
   </defs>
-  
-  <!-- ══════════ TECH SOCCER BALL ══════════ -->
-  <g transform="translate(50, 50)">
-    <!-- Outer tech ring -->
-    <circle cx="0" cy="0" r="46" fill="none" stroke="url(#accentGradient)" stroke-width="1.2" opacity="0.25" stroke-dasharray="8,4"/>
-    <circle cx="0" cy="0" r="42" fill="none" stroke="#00C853" stroke-width="0.5" opacity="0.4"/>
-    
-    <!-- Main ball -->
-    <circle cx="0" cy="0" r="38" fill="url(#ballGradient)"/>
-    
-    <!-- Hex overlay -->
-    <circle cx="0" cy="0" r="36" fill="url(#hexPattern)" opacity="0.6"/>
-    
-    <!-- Futuristic hexagon segments -->
-    <g filter="url(#softGlow)">
-      <!-- Center hex -->
-      <path d="M0 -18L12 -10L12 6L0 14L-12 6L-12 -10Z" fill="#00A843" stroke="#00E676" stroke-width="0.8"/>
-      
-      <!-- Side segments -->
-      <path d="M12 -10L26 0L26 14L12 24L12 6Z" fill="#00A843" stroke="#00E676" stroke-width="0.6"/>
-      <path d="M-12 -10L-12 6L-26 14L-26 0Z" fill="#00A843" stroke="#00E676" stroke-width="0.6"/>
-      <path d="M0 14L12 24L8 36L-8 36L-12 24Z" fill="#00A843" stroke="#00E676" stroke-width="0.6"/>
+  <rect width="360" height="100" fill="#050a08"/>
+  <g transform="translate(50, 50) scale(0.88) translate(-50, -50)">
+    <rect width="100" height="100" fill="url(#rlBg)"/>
+    <g filter="url(#rlFieldGlow)">
+      <circle cx="50" cy="50" r="33.5" stroke="#4ade80" stroke-width="1.15"/>
+      <path
+        d="M50 36.2 L61.35 44.5 L57.05 58.1 L42.95 58.1 L38.65 44.5 Z"
+        stroke="#4ade80"
+        stroke-width="1.05"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M22 72 Q34 58 50 54 Q66 50 78 62"
+        stroke="#22c55e"
+        stroke-width="1.35"
+        stroke-linecap="round"
+        opacity="0.9"
+      />
     </g>
-    
-    <!-- Circuit lines -->
-    <g stroke="#00E676" stroke-width="0.8" opacity="0.6">
-      <path d="M0 -40L0 -22"/>
-      <path d="M34 -20L42 -26"/>
-      <path d="M-34 -20L-42 -26"/>
-      <circle cx="0" cy="-40" r="2" fill="#00E676"/>
-      <circle cx="42" cy="-26" r="1.5" fill="#00E676"/>
-      <circle cx="-42" cy="-26" r="1.5" fill="#00E676"/>
+    <g>
+      <circle cx="50" cy="50" r="33.5" stroke="#ecfdf5" stroke-width="0.5" opacity="0.88"/>
+      <path
+        d="M50 36.2 L61.35 44.5 L57.05 58.1 L42.95 58.1 L38.65 44.5 Z"
+        stroke="#ecfdf5"
+        stroke-width="0.48"
+        stroke-linejoin="round"
+        opacity="0.85"
+      />
+      <path
+        d="M22 72 Q34 58 50 54 Q66 50 78 62"
+        stroke="#ecfdf5"
+        stroke-width="0.55"
+        stroke-linecap="round"
+        opacity="0.3"
+      />
     </g>
-    
-    <!-- R Letter central -->
-    <text x="-14" y="10" font-family="'Montserrat', Arial Black, sans-serif" font-weight="900" font-size="38" fill="#FFFFFF" filter="url(#glow)">R</text>
-    
-    <!-- Highlight -->
-    <ellipse cx="-12" cy="-14" rx="8" ry="5" fill="#FFFFFF" opacity="0.2"/>
   </g>
-  
-  <!-- Energy arc -->
-  <path d="M12 78C24 52 42 38 58 34" stroke="url(#accentGradient)" stroke-width="4" stroke-linecap="round" fill="none" filter="url(#glow)"/>
-  
-  <!-- Speed lines -->
-  <g stroke="url(#accentGradient)" stroke-width="2" stroke-linecap="round" opacity="0.9">
-    <path d="M6 60L20 55"/>
-    <path d="M3 72L22 65"/>
-    <path d="M10 84L26 76"/>
-  </g>
-  
-  <!-- ══════════ TEXT SECTION ══════════ -->
-  
-  <!-- Tech frame corners -->
-  <g stroke="#00C853" stroke-width="1.2" opacity="0.5">
-    <path d="M112 18L112 30M112 18L124 18"/>
-    <path d="M340 70L340 82M328 82L340 82"/>
-  </g>
-  
-  <!-- Base line -->
-  <rect x="114" y="62" width="200" height="1" fill="#333333"/>
-  
-  <!-- Accent underline -->
-  <rect x="114" y="62" width="115" height="4" rx="2" fill="url(#accentGradient)" filter="url(#glow)"/>
-  
-  <!-- Main text -->
-  <text x="116" y="54" font-family="'Montserrat', 'SF Pro Display', Arial Black, sans-serif" font-weight="900" font-size="46" fill="url(#textGradient)" letter-spacing="5">
+  <text
+    x="118"
+    y="58"
+    fill="url(#rlText)"
+    font-family="system-ui, -apple-system, 'Segoe UI', sans-serif"
+    font-size="34"
+    font-weight="800"
+    letter-spacing="0.18em"
+  >
     RACHÃO
   </text>
-  
-  <!-- Tech dots -->
-  <g fill="url(#accentGradient)">
-    <circle cx="110" cy="48" r="2"/>
-    <circle cx="342" cy="48" r="2"/>
-  </g>
+  <rect x="118" y="68" width="132" height="3" rx="1.5" fill="url(#rlAccent)" opacity="0.95"/>
 </svg>
