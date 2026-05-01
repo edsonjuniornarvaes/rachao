@@ -1,0 +1,158 @@
+import { theme } from "@/constants/theme";
+import { StyleSheet } from "react-native";
+
+export const s = StyleSheet.create({
+  root: {
+    flex: 1,
+    backgroundColor: theme.colors.background,
+  },
+  raysWrap: {
+    position: "absolute",
+    top: 0,
+    zIndex: 0,
+    overflow: "hidden",
+  },
+  gradientOverlay: {
+    position: "absolute",
+    bottom: 0,
+    left: 0,
+    right: 0,
+    zIndex: 1,
+  },
+  logoArea: {
+    position: "absolute",
+    left: 0,
+    right: 0,
+    alignItems: "center",
+    zIndex: 2,
+  },
+  tagline: {
+    color: theme.colors.textLight,
+    fontFamily: "Chivo_300Light",
+    fontSize: 9,
+    letterSpacing: 2.5,
+    textTransform: "uppercase",
+    marginTop: 10,
+    opacity: 0.95,
+  },
+  bottomSafe: {
+    position: "absolute",
+    bottom: 0,
+    left: 0,
+    right: 0,
+    zIndex: 3,
+  },
+  bottomSafeArea: {
+    width: "100%",
+  },
+  /** Folha inferior — sem handle (não arrastável); safe area no wrapper */
+  sheet: {
+    borderTopLeftRadius: theme.radius.authSheet,
+    borderTopRightRadius: theme.radius.authSheet,
+    borderBottomLeftRadius: theme.radius.authSheet,
+    borderBottomRightRadius: theme.radius.authSheet,
+    backgroundColor: "rgba(18, 18, 24, 0.94)",
+    borderTopWidth: StyleSheet.hairlineWidth,
+    borderLeftWidth: StyleSheet.hairlineWidth,
+    borderRightWidth: StyleSheet.hairlineWidth,
+    borderColor: "rgba(255, 255, 255, 0.08)",
+    paddingHorizontal: theme.spacing.xxl,
+    paddingTop: theme.spacing.xxl,
+    paddingBottom: theme.spacing.xxl,
+    marginHorizontal: theme.spacing.xs,
+    overflow: "hidden",
+  },
+  sheetTopGlow: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    height: 72,
+  },
+  googleButton: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: theme.radius.buttonLg,
+    paddingVertical: 16,
+    backgroundColor: theme.colors.white,
+    gap: theme.spacing.md,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.18,
+    shadowRadius: 12,
+    elevation: 8,
+  },
+  googleLabel: {
+    fontSize: 16,
+    color: theme.colors.textPrimary,
+    fontWeight: "600",
+    letterSpacing: 0.1,
+  },
+  secondaryButton: {
+    flexDirection: "row",
+    backgroundColor: "rgba(255, 255, 255, 0.06)",
+    borderWidth: 1,
+    borderColor: "rgba(255, 255, 255, 0.16)",
+    borderRadius: theme.radius.buttonLg,
+    paddingVertical: 16,
+    alignItems: "center",
+    justifyContent: "center",
+    gap: theme.spacing.sm,
+    marginTop: theme.spacing.sm,
+  },
+  secondaryButtonText: {
+    color: theme.colors.textLighter,
+    fontSize: 16,
+    fontWeight: "600",
+    letterSpacing: 0.15,
+  },
+  signupLinkWrap: {
+    marginTop: theme.spacing.xl,
+    alignItems: "center",
+  },
+  signupLink: {
+    fontSize: 14,
+    color: "rgba(255, 255, 255, 0.5)",
+  },
+  signupLinkHighlight: {
+    color: theme.colors.gold,
+    fontWeight: "700",
+  },
+  buttonDisabled: {
+    opacity: 0.55,
+  },
+  oauthSpinner: {
+    width: 24,
+    height: 24,
+  },
+  dividerRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    paddingVertical: theme.spacing.lg,
+  },
+  dividerLine: {
+    flex: 1,
+    height: StyleSheet.hairlineWidth,
+    backgroundColor: "rgba(255, 255, 255, 0.1)",
+  },
+  dividerText: {
+    color: theme.colors.textDivider,
+    fontSize: 13,
+    marginHorizontal: theme.spacing.xl,
+    letterSpacing: 0.3,
+    fontWeight: "500",
+    opacity: 0.9,
+  },
+  pressed: {
+    opacity: 0.92,
+    transform: [{ scale: 0.985 }],
+  },
+  pressedLight: {
+    opacity: 0.88,
+  },
+  secondaryPressed: {
+    opacity: 0.95,
+    backgroundColor: "rgba(255, 255, 255, 0.1)",
+  },
+});
