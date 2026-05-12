@@ -1,5 +1,6 @@
 import { useAuth } from "@/contexts/AuthContext";
 import { usePostAuthNavigation } from "@/contexts/PostAuthNavigationContext";
+import { Sentry } from "@/lib/sentry";
 import { router } from "expo-router";
 import { useState } from "react";
 import { useWindowDimensions } from "react-native";
@@ -44,7 +45,8 @@ export const useEntryViewModel = () => {
       }
       beginPostAuthNavigation();
       router.replace("/(tabs)/home");
-    } catch {
+    } catch (e: unknown) {
+      Sentry.captureException(e, { tags: { flow: "oauth-entry" } });
       // silently ignore – entry has no feedback banner
     } finally {
       setOauthLoading(false);

@@ -1,7 +1,7 @@
 import React, { useId } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import Svg, { Circle, Path, Rect, G, Defs, RadialGradient, Stop } from "react-native-svg";
-import { Typography } from "@/constants/theme";
+import { Typography, theme } from "@/constants/theme";
 
 interface LogoProps {
   size?: "sm" | "md" | "lg" | "xl";
@@ -36,17 +36,17 @@ export function Logo({
       </Defs>
       <Rect width="100" height="100" fill={`url(#${gradId})`} />
       <G>
-        <Circle cx="50" cy="50" r="33.5" stroke="#4ade80" strokeWidth={1.15} fill="none" />
+        <Circle cx="50" cy="50" r="33.5" stroke={theme.colors.brandLight} strokeWidth={1.15} fill="none" />
         <Path
           d="M50 36.2 L61.35 44.5 L57.05 58.1 L42.95 58.1 L38.65 44.5 Z"
-          stroke="#4ade80"
+          stroke={theme.colors.brandLight}
           strokeWidth={1.05}
           fill="none"
           strokeLinejoin="round"
         />
         <Path
           d="M22 72 Q34 58 50 54 Q66 50 78 62"
-          stroke="#22c55e"
+          stroke={theme.colors.brand}
           strokeWidth={1.35}
           strokeLinecap="round"
           opacity={0.9}
@@ -88,7 +88,7 @@ export function Logo({
         <View
           style={[
             styles.underline,
-            { width: fontSize * 2.5, backgroundColor: "#22c55e" },
+            { width: fontSize * 2.5, backgroundColor: theme.colors.brand },
           ]}
         />
       </View>
@@ -106,7 +106,7 @@ export function Logo({
         <View
           style={[
             styles.underline,
-            { width: fontSize * 2.2, backgroundColor: "#22c55e" },
+            { width: fontSize * 2.2, backgroundColor: theme.colors.brand },
           ]}
         />
       </View>

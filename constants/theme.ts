@@ -10,6 +10,8 @@ export const theme = {
     goldLight: "rgba(212,167,69,0.15)",
     goldShadow: "#FEBA43",
     accent: "#FFB84C",
+    brand: "#22c55e",
+    brandLight: "#4ade80",
 
     card: "rgba(255,255,255,0.07)",
     cardBorder: "rgba(255,255,255,0.12)",

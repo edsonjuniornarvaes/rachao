@@ -3,6 +3,7 @@ import {
   resolveAuthCallbackRedirectUri,
   resolveSupabaseEmailRedirectUri,
 } from "@/lib/auth/authRedirectUri";
+import { Sentry } from "@/lib/sentry";
 import { supabase } from "@/lib/supabase";
 import { Session, User } from "@supabase/supabase-js";
 import * as WebBrowser from "expo-web-browser";
@@ -17,11 +18,17 @@ export const useAuthViewModel = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session: s } }) => {
-      setSession(s);
-      setUser(s?.user ?? null);
-      setLoading(false);
-    });
+    supabase.auth
+      .getSession()
+      .then(({ data: { session: s } }) => {
+        setSession(s);
+        setUser(s?.user ?? null);
+        setLoading(false);
+      })
+      .catch((e) => {
+        Sentry.captureException(e, { tags: { flow: "auth-init" } });
+        setLoading(false);
+      });
 
     const {
       data: { subscription },

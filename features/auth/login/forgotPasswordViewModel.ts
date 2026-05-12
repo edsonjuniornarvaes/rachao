@@ -4,6 +4,7 @@ import {
   AUTH_FORM_HEADER_HEIGHT_RATIO,
   ENTRY_CONSTANTS,
 } from "@/features/auth/entry/models";
+import { Sentry } from "@/lib/sentry";
 import t from "@/lib/translator";
 import { isValidEmail } from "@/lib/validation/isValidEmail";
 import { router } from "expo-router";
@@ -79,6 +80,7 @@ export const useForgotPasswordViewModel = () => {
       setForm((prev) => ({ ...prev, loading: false }));
       setFeedback({ kind: "success" });
     } catch (e: unknown) {
+      Sentry.captureException(e, { tags: { flow: "forgot-password" } });
       setFeedback({
         kind: "error",
         message: (e as Error).message,

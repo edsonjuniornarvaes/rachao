@@ -1,3 +1,4 @@
+import { Sentry } from "@/lib/sentry";
 import { supabase } from "@/lib/supabase";
 
 export async function createPaymentIntent(amount: number, currency = "brl") {
@@ -17,7 +18,14 @@ export async function createPaymentIntent(amount: number, currency = "brl") {
     },
   );
 
-  if (error) throw error;
-  if (!data?.clientSecret) throw new Error("Resposta inválida da API");
+  if (error) {
+    Sentry.captureException(error, { tags: { flow: "payment", step: "create-intent" } });
+    throw error;
+  }
+  if (!data?.clientSecret) {
+    const err = new Error("Resposta inválida da API");
+    Sentry.captureException(err, { tags: { flow: "payment", step: "create-intent" } });
+    throw err;
+  }
   return data.clientSecret;
 }

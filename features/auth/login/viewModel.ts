@@ -5,6 +5,7 @@ import {
   AUTH_FORM_HEADER_HEIGHT_RATIO,
   ENTRY_CONSTANTS,
 } from "@/features/auth/entry/models";
+import { Sentry } from "@/lib/sentry";
 import t from "@/lib/translator";
 import { router } from "expo-router";
 import { useEffect, useState } from "react";
@@ -104,6 +105,7 @@ export const useLoginViewModel = () => {
       beginPostAuthNavigation();
       router.replace("/(tabs)/home");
     } catch (e: unknown) {
+      Sentry.captureException(e, { tags: { flow: "login" } });
       setFeedbackError((e as Error).message);
     } finally {
       setForm((prev) => ({ ...prev, loading: false }));

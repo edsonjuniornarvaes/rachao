@@ -1,4 +1,5 @@
 import { useAuth } from "@/contexts/AuthContext";
+import { Sentry } from "@/lib/sentry";
 import { supabase } from "@/lib/supabase";
 import * as Linking from "expo-linking";
 import { useRouter, useSegments } from "expo-router";
@@ -33,6 +34,8 @@ export function AuthRouting() {
         if (!live) {
           router.replace("/(auth)/entry");
         }
+      }).catch((e) => {
+        Sentry.captureException(e, { tags: { flow: "auth-routing" } });
       });
     }
   }, [session, loading, segments, router]);

@@ -4,6 +4,7 @@ import {
   AUTH_FORM_HEADER_HEIGHT_RATIO,
   ENTRY_CONSTANTS,
 } from "@/features/auth/entry/models";
+import { Sentry } from "@/lib/sentry";
 import t from "@/lib/translator";
 import { router } from "expo-router";
 import { useState } from "react";
@@ -84,6 +85,7 @@ export const useSignupViewModel = () => {
       });
       setFeedback({ kind: "success" });
     } catch (e: unknown) {
+      Sentry.captureException(e, { tags: { flow: "signup" } });
       setFeedback({ kind: "error", message: (e as Error).message });
     } finally {
       setForm((prev) => ({ ...prev, loading: false }));

@@ -1,4 +1,5 @@
 import { createPaymentIntent } from "@/lib/checkout";
+import { Sentry } from "@/lib/sentry";
 import t from "@/lib/translator";
 import { useStripe } from "@stripe/stripe-react-native";
 import { useState } from "react";
@@ -58,6 +59,7 @@ export const useScheduleViewModel = () => {
 
       if (initError) {
         clearTimeout(timeout);
+        Sentry.captureException(initError, { tags: { flow: "payment", step: "init-sheet" } });
         setPaymentState({
           loading: false,
           error: `${t.schedule.errorCheckout}: ${initError.message}`,
@@ -87,7 +89,7 @@ export const useScheduleViewModel = () => {
     } catch (error: unknown) {
       clearTimeout(timeout);
       if (timedOut) return;
-      console.error(error);
+      Sentry.captureException(error, { tags: { flow: "payment", step: "checkout" } });
       const msg =
         (error as { message?: string })?.message ?? t.schedule.errorGeneric;
       setPaymentState({

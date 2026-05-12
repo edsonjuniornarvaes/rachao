@@ -1,5 +1,6 @@
 import { usePostAuthNavigation } from "@/contexts/PostAuthNavigationContext";
 import { applyOAuthReturnUrl } from "@/lib/auth/applyOAuthReturnUrl";
+import { Sentry } from "@/lib/sentry";
 import * as Linking from "expo-linking";
 import { useRouter } from "expo-router";
 import { useEffect, useRef } from "react";
@@ -33,18 +34,26 @@ export default function AuthOAuthCallback() {
       if (processedRef.current === url) return;
       processedRef.current = url;
 
-      const result = await applyOAuthReturnUrl(url);
-      if (!active) return;
-      if (!result.success) {
-        processedRef.current = null;
-        finish("/");
-        return;
+      try {
+        const result = await applyOAuthReturnUrl(url);
+        if (!active) return;
+        if (!result.success) {
+          processedRef.current = null;
+          finish("/");
+          return;
+        }
+        if (result.isPasswordRecovery) {
+          finish("/(auth)/reset-password");
+          return;
+        }
+        finish("/(tabs)/home");
+      } catch (e: unknown) {
+        Sentry.captureException(e, { tags: { flow: "oauth-callback" } });
+        if (active) {
+          processedRef.current = null;
+          finish("/");
+        }
       }
-      if (result.isPasswordRecovery) {
-        finish("/(auth)/reset-password");
-        return;
-      }
-      finish("/(tabs)/home");
     };
 
     const resolve = async () => {
