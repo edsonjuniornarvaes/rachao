@@ -3,14 +3,20 @@ import { createClient } from "@supabase/supabase-js";
 import { Platform } from "react-native";
 import "react-native-url-polyfill/auto";
 
-const supabaseUrl = process.env.EXPO_PUBLIC_SUPABASE_URL ?? "";
-const supabaseAnonKey = process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY ?? "";
+const supabaseUrl = process.env.EXPO_PUBLIC_SUPABASE_URL?.trim() ?? "";
+const supabaseAnonKey = process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY?.trim() ?? "";
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
-  auth: {
-    ...(Platform.OS !== "web" ? { storage: AsyncStorage } : {}),
-    autoRefreshToken: true,
-    persistSession: true,
-    detectSessionInUrl: Platform.OS === "web",
+const PLACEHOLDER_URL = "https://placeholder.supabase.co";
+
+export const supabase = createClient(
+  supabaseUrl || PLACEHOLDER_URL,
+  supabaseAnonKey || "placeholder",
+  {
+    auth: {
+      ...(Platform.OS !== "web" ? { storage: AsyncStorage } : {}),
+      autoRefreshToken: true,
+      persistSession: true,
+      detectSessionInUrl: Platform.OS === "web",
+    },
   },
-});
+);

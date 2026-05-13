@@ -90,8 +90,8 @@ export const s = StyleSheet.create({
     borderWidth: 1,
   },
   feedbackSuccess: {
-    backgroundColor: "rgba(254, 186, 67, 0.12)",
-    borderColor: "rgba(254, 186, 67, 0.45)",
+    backgroundColor: "rgba(34, 197, 94, 0.12)",
+    borderColor: "rgba(34, 197, 94, 0.45)",
   },
   feedbackError: {
     backgroundColor: "rgba(200, 60, 60, 0.06)",
@@ -221,7 +221,7 @@ export const s = StyleSheet.create({
     justifyContent: "center",
     gap: theme.spacing.sm,
     borderWidth: 1,
-    borderColor: "rgba(254, 186, 67, 0.5)",
+    borderColor: "rgba(34, 197, 94, 0.5)",
     shadowColor: theme.colors.goldShadow,
     shadowOffset: { width: 0, height: 5 },
     shadowOpacity: 0.32,

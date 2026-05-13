@@ -10,6 +10,10 @@ export function StripeWrapper({
   publishableKey,
   children,
 }: StripeWrapperProps) {
+  if (!publishableKey) {
+    return <>{children}</>;
+  }
+
   return (
     <StripeProvider
       publishableKey={publishableKey}

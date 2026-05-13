@@ -6,10 +6,10 @@ export const theme = {
     /** Fundo do cartão login/cadastro — menos choque que branco puro no preto. */
     authSheetFill: "#F5F5F7",
 
-    gold: "#FEBA43",
-    goldLight: "rgba(212,167,69,0.15)",
-    goldShadow: "#FEBA43",
-    accent: "#FFB84C",
+    gold: "#22c55e",
+    goldLight: "rgba(34,197,94,0.15)",
+    goldShadow: "#16a34a",
+    accent: "#4ade80",
     brand: "#22c55e",
     brandLight: "#4ade80",
 
@@ -33,7 +33,7 @@ export const theme = {
     dividerDark: "rgba(255,255,255,0.15)",
     secondaryBorder: "rgba(255,255,255,0.2)",
 
-    tabActive: "#FFB84C",
+    tabActive: "#4ade80",
     tabInactive: "#A4ACB9",
 
     google: "#4285F4",

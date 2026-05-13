@@ -24,8 +24,8 @@ const RaysSvg = (props: SvgProps) => (
         y2={282.227}
         gradientUnits="userSpaceOnUse"
       >
-        <Stop stopColor="#FFB900" stopOpacity={0.39} />
-        <Stop offset={1} stopColor="#FFB900" stopOpacity={0} />
+        <Stop stopColor="#22c55e" stopOpacity={0.39} />
+        <Stop offset={1} stopColor="#22c55e" stopOpacity={0} />
       </LinearGradient>
     </Defs>
   </Svg>

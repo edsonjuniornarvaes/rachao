@@ -31,6 +31,7 @@ yarn-error.*
 *.pem
 
 # local env files
+.env
 .env*.local
 
 # typescript
@@ -42,5 +43,8 @@ app-example
 /ios
 /android
 
-# IDE extensions
+# Editor extension
 .history/
+
+# Supabase CLI (estado local do link, versões, etc.)
+supabase/.temp/

@@ -69,8 +69,8 @@ export default function Index() {
           <View style={s.sheet}>
             <LinearGradient
               colors={[
-                "rgba(254, 186, 67, 0.1)",
-                "rgba(254, 186, 67, 0.02)",
+                "rgba(34, 197, 94, 0.1)",
+                "rgba(34, 197, 94, 0.02)",
                 "transparent",
               ]}
               locations={[0, 0.5, 1]}

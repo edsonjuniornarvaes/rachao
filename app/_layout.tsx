@@ -1,5 +1,4 @@
 import { AuthRouting } from "@/components/AuthRouting";
-import { MissingStripeKeyScreen } from "@/components/LayoutPlaceholder";
 import { PostAuthNavigationOverlay } from "@/components/PostAuthNavigationOverlay";
 import { StripeWrapper } from "@/components/StripeWrapper";
 import { theme } from "@/constants/theme";
@@ -90,10 +89,6 @@ function AppNavigation({ publishableKey }: { publishableKey: string }) {
 function RootLayout() {
   const { publishableKey } = useStripePublishableKey();
 
-  if (!publishableKey) {
-    return <MissingStripeKeyGate />;
-  }
-
   return (
     <SafeAreaProvider>
       <AuthProvider>
@@ -104,10 +99,3 @@ function RootLayout() {
 }
 
 export default wrapRootComponent(RootLayout);
-
-function MissingStripeKeyGate() {
-  useEffect(() => {
-    void SplashScreen.hideAsync();
-  }, []);
-  return <MissingStripeKeyScreen />;
-}

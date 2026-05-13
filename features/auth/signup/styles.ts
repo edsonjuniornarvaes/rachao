@@ -113,7 +113,7 @@ export const s = StyleSheet.create({
     justifyContent: "center",
     minHeight: 52,
     borderWidth: 1,
-    borderColor: "rgba(254, 186, 67, 0.5)",
+    borderColor: "rgba(34, 197, 94, 0.5)",
     shadowColor: theme.colors.goldShadow,
     shadowOffset: { width: 0, height: 5 },
     shadowOpacity: 0.32,
